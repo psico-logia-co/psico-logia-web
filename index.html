@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psico.logia.co | Suscripción en Terapia de Aceptación y Compromiso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --text-primary: #18181B;
+      --text-secondary: #52525B;
+      --accent: #1E3A3A;
+      --accent-hover: #142929;
+      --border: #E4E4E7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 5% 4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background-color: #E6EFEF;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.95rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    /* Contenedor optimizado para YouTube Shorts (9:16) */
+    .video-wrapper {
+      width: 100%;
+      max-width: 315px;
+      margin: 0 auto;
+      aspect-ratio: 9 / 16;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      background-color: #000;
+      border: 1px solid var(--border);
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .grid-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .step-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .form-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .form-container {
+      margin-top: 1.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-container iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 540px;
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 5%;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .grid-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .form-container iframe {
+        height: 580px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="brand">Psico.logia.co</a>
+    <a href="#registro" class="nav-cta">Unirme a la lista</a>
+  </header>
+
+  <main class="container">
+    <!-- Sección Principal + Video Short -->
+    <section class="hero">
+      <div>
+        <span class="badge">Terapia de Aceptación y Compromiso (ACT)</span>
+        <h1>Deja de tener tu vida en pausa por pelear contra tu mente.</h1>
+        <p class="subtitle">
+          Un programa práctico respaldado por la ciencia. Sin frases motivacionales ni positividad tóxica: entrenamientos breves, ejercicios experienciales y hojas de trabajo para cambiar tu relación con la ansiedad, el sobrepensamiento y los duelos.
+        </p>
+        <a href="#registro" class="btn-primary">Acceder al programa y novedades</a>
+      </div>
+
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/a9fphXffTh4" 
+          title="Presentación de la suscripción de psico.logia.co" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Estructura del programa -->
+    <section>
+      <h2 class="section-title">¿Cómo trabajaremos paso a paso?</h2>
+      <p class="section-desc">
+        Pasamos de la teoría a la práctica desde el primer día con documentos descargables, autorregistros y herramientas aplicables a tu propio caso.
+      </p>
+
+      <div class="grid-steps">
+        <div class="card">
+          <span class="step-num">ETAPA 01</span>
+          <h3>Desenganchar tu mente</h3>
+          <p>Herramientas prácticas para frenar la rumiación y el sobrepensamiento sin desgastarte intentando suprimir lo que piensas.</p>
+        </div>
+
+        <div class="card">
+          <span class="step-num">ETAPA 02</span>
+          <h3>Soltar la lucha emocional</h3>
+          <p>Aprende a abrirle espacio a la ansiedad, el miedo o el dolor emocional sin que te desborden ni paralicen tu día.</p>
+        </div>
+
+        <div class="card">
+          <span class="step-num">ETAPA 03</span>
+          <h3>Salir del piloto automático</h3>
+          <p>Ejercicios breves de anclaje al presente para recuperar el foco cuando tu mente intenta llevarte al pasado o al futuro.</p>
+        </div>
+
+        <div class="card">
+          <span class="step-num">ETAPA 04</span>
+          <h3>Brújula y plan de acción</h3>
+          <p>Clarifica qué es lo que realmente te importa hoy y construye acciones concretas hacia la vida que quieres dirigir.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Captura de Correos (Google Forms integrado) -->
+    <section id="registro" class="form-section">
+      <h2 class="section-title">Recibe acceso y recursos gratuitos</h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Deja tu correo para enviarte el enlace directo a la zona de suscriptores, avisarte de nuevos episodios y compartirte herramientas complementarias en ACT.
+      </p>
+
+      <div class="form-container">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdQrP3LKl-P-370vySkCF_ccMPNPhLd7bcRn07_DvFfFi0J9Q/viewform?embedded=true" 
+          title="Formulario de suscripción Psico.logia.co">
+          Cargando formulario…
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>David Patiño</strong> · Psicólogo Clínico · @psico.logia.co</p>
+    <p style="margin-top: 0.35rem; font-size: 0.8rem;">Contenido basado en evidencia científica (Terapias de Tercera Generación).</p>
+  </footer>
+
+</body>
+</html>
