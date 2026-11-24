@@ -3,331 +3,658 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Psico.logia.co | Suscripción en Terapia de Aceptación y Compromiso</title>
+  <title>psico.logia.co | Complemento terapéutico en Terapia de Aceptación y Compromiso</title>
+
+  <!-- SEO + vista previa al compartir en WhatsApp / Instagram -->
+  <meta name="description" content="Material complementario en Terapia de Aceptación y Compromiso (ACT). No reemplaza la terapia: es un apoyo para practicar y entender mejor tu mente, estés o no en proceso. Por David Patiño, psicólogo clínico.">
+  <meta name="theme-color" content="#0047B3">
+  <link rel="canonical" href="https://psico-logia.co/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://psico-logia.co/">
+  <meta property="og:title" content="psico.logia.co · Un complemento a la terapia, no un reemplazo">
+  <meta property="og:description" content="Entrenamientos breves, ejercicios y hojas de trabajo en ACT para practicar entre sesiones y entender mejor tu mente.">
+  <meta property="og:image" content="https://psico-logia.co/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Tipografías del manual: Jost (títulos) + Lora (textos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <style>
+    /* ===== Paleta del manual de marca =====
+       Principales: azul, naranja, blanco (60 · 30 · 10)
+       Apoyo: azul noche (reemplaza al negro), crema, naranja profundo (texto naranja pequeño) */
     :root {
-      --bg-main: #FAFAFA;
-      --bg-card: #FFFFFF;
-      --text-primary: #18181B;
-      --text-secondary: #52525B;
-      --accent: #1E3A3A;
-      --accent-hover: #142929;
-      --border: #E4E4E7;
+      --azul: #0047B3;
+      --azul-hover: #003A93;
+      --naranja: #C2730C;
+      --naranja-prof: #9B5C0A;
+      --blanco: #FFFFFF;
+      --noche: #001C48;
+      --crema: #FAF4EC;
+      --suave: #4A5878;
+      --azul-claro: #D6E0F3;
+      --azul-niebla: #E6EDF7;
+      --linea: #D3DCEA;
+      --radio: 24px;
+      --titulos: 'Jost', 'Futura', Arial, sans-serif;
+      --textos: 'Lora', Georgia, serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-primary);
+      font-family: var(--textos);
+      background: var(--blanco);
+      color: var(--noche);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    header {
-      padding: 1.5rem 5%;
+    h1, h2, h3, .titulos { font-family: var(--titulos); color: var(--noche); letter-spacing: -0.01em; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--naranja); outline-offset: 3px; border-radius: 6px; }
+
+    /* Etiqueta (ceja): Jost Semibold, mayúsculas, naranja profundo */
+    .ceja {
+      display: block;
+      font-family: var(--titulos);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--naranja-prof);
+      margin-bottom: 1rem;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s ease;
+    }
+    .site-header.scrolled { border-bottom-color: var(--linea); }
+
+    .site-header nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: .75rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1080px;
-      margin: 0 auto;
     }
+    .brand img { height: 60px; width: auto; display: block; }
 
-    .brand {
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      text-decoration: none;
-    }
-
-    .nav-cta {
-      font-size: 0.85rem;
+    .nav-links { display: flex; gap: 2rem; align-items: center; font-family: var(--titulos); }
+    .nav-links a { font-size: .95rem; font-weight: 500; color: var(--suave); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--azul); }
+    .nav-links .nav-cta {
+      color: var(--blanco);
+      background: var(--azul);
+      padding: .55rem 1.25rem;
+      border-radius: 999px;
       font-weight: 600;
-      color: var(--accent);
+    }
+    .nav-links .nav-cta:hover { background: var(--azul-hover); color: var(--blanco); }
+
+    /* ---------- Layout ---------- */
+    .container { max-width: 1040px; margin: 0 auto; padding-inline: 5%; }
+    section { padding: 5rem 0; }
+    .crema { background: var(--crema); }
+
+    .section-head { text-align: center; max-width: 660px; margin: 0 auto 3rem; }
+    .section-title { font-size: clamp(1.75rem, 3.4vw, 2.4rem); font-weight: 600; line-height: 1.15; margin-bottom: .9rem; }
+    .section-desc { color: var(--suave); font-size: 1.05rem; }
+    .resalta { color: var(--azul); }
+
+    /* ---------- Botones ---------- */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--titulos);
+      background: var(--azul);
+      color: var(--blanco);
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 1rem 1.75rem;
+      border-radius: 999px;
       text-decoration: none;
-      border: 1px solid var(--accent);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: all 0.2s ease;
+      transition: background-color .2s ease, transform .2s ease;
     }
+    .btn-primary:hover { background: var(--azul-hover); transform: translateY(-2px); }
+    .btn-primary .arrow { transition: transform .2s ease; }
+    .btn-primary:hover .arrow { transform: translateX(3px); }
 
-    .nav-cta:hover {
-      background-color: var(--accent);
-      color: #FFFFFF;
+    .btn-link {
+      font-family: var(--titulos);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--azul);
+      text-decoration: none;
+      border-bottom: 2px solid var(--azul-claro);
+      padding-bottom: 2px;
+      transition: border-color .2s;
     }
+    .btn-link:hover { border-color: var(--azul); }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem 5% 4rem;
-    }
-
+    /* ---------- Hero ---------- */
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3rem;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 4rem;
       align-items: center;
-      margin-bottom: 4.5rem;
+      padding-top: 3.5rem;
     }
 
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
+    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 600; line-height: 1.06; margin-bottom: 1.35rem; }
+
+    .subtitle { font-size: 1.1rem; color: var(--suave); margin-bottom: 1.75rem; max-width: 34rem; }
+
+    /* La declaración de posicionamiento: el único bloque naranja protagonista (azul noche sobre naranja, 4,6:1) */
+    .declaracion {
+      background: var(--naranja);
+      color: var(--noche);
+      border-radius: 20px;
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 2rem;
+      max-width: 34rem;
+    }
+    .declaracion strong {
+      display: block;
+      font-family: var(--titulos);
+      font-size: 1.3rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      background-color: #E6EFEF;
-      padding: 0.35rem 0.75rem;
-      border-radius: 4px;
-      margin-bottom: 1.25rem;
-    }
-
-    h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
       line-height: 1.2;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
+      margin-bottom: .4rem;
     }
+    .declaracion p { font-size: .98rem; line-height: 1.55; }
 
-    .subtitle {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      margin-bottom: 1.75rem;
-      font-weight: 400;
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
+
+    .trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.5rem;
+      margin-top: 1.75rem;
+      list-style: none;
+      font-family: var(--titulos);
+      font-size: .92rem;
+      color: var(--suave);
     }
+    .trust li { display: flex; align-items: center; gap: .45rem; }
+    .trust li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--azul); }
 
-    .btn-primary {
-      display: inline-block;
-      background-color: var(--accent);
-      color: #FFFFFF;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.95rem 1.75rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.2s ease;
+    /* Video sobre el círculo de marca (sólido, sin degradados ni sombras) */
+    .video-stage { position: relative; display: flex; justify-content: center; align-items: center; }
+    .video-stage::before {
+      content: "";
+      position: absolute;
+      width: 118%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--azul);
+      z-index: 0;
     }
-
-    .btn-primary:hover {
-      background-color: var(--accent-hover);
-    }
-
-    /* Contenedor optimizado para YouTube Shorts (9:16) */
     .video-wrapper {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      max-width: 315px;
-      margin: 0 auto;
+      max-width: 290px;
       aspect-ratio: 9 / 16;
-      border-radius: 16px;
+      border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      background-color: #000;
-      border: 1px solid var(--border);
+      background: var(--noche);
+      border: 6px solid var(--blanco);
     }
+    .video-wrapper iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-    .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
+    /* ---------- Para quién ---------- */
+    .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .fit-col { background: var(--blanco); border-radius: var(--radio); padding: 2.25rem; }
+    .fit-col h3 { font-size: 1.35rem; font-weight: 600; margin-bottom: 1.25rem; }
+    .fit-col ul { list-style: none; display: grid; gap: .9rem; }
+    .fit-col li { font-size: 1rem; color: var(--suave); padding-left: 2rem; position: relative; }
+    .fit-col li::before {
+      position: absolute; left: 0; top: .2rem;
+      width: 1.3rem; height: 1.3rem; border-radius: 50%;
+      display: grid; place-items: center;
+      font-family: var(--titulos); font-size: .8rem; font-weight: 600; line-height: 1;
     }
+    .fit-yes li::before { content: "✓"; background: var(--azul); color: var(--blanco); }
+    .fit-no li::before { content: "×"; background: var(--azul-niebla); color: var(--noche); font-size: 1rem; }
 
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
-    }
-
-    .section-desc {
-      text-align: center;
-      color: var(--text-secondary);
-      max-width: 640px;
-      margin: 0 auto 2.5rem;
-      font-size: 0.95rem;
-    }
-
-    .grid-steps {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 4.5rem;
-    }
+    /* ---------- Etapas ---------- */
+    .grid-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
     .card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
+      background: var(--blanco);
+      border: 2px solid var(--linea);
+      border-radius: var(--radio);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 1.25rem;
+      transition: border-color .25s ease, transform .25s ease;
     }
+    .card:hover { border-color: var(--azul-claro); transform: translateY(-3px); }
 
-    .step-num {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .card h3 {
-      font-size: 1.1rem;
+    /* Numeración con el círculo de marca */
+    .num-c {
+      grid-row: span 3;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--azul);
+      color: var(--blanco);
+      display: grid;
+      place-items: center;
+      font-family: var(--titulos);
+      font-size: 1.4rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+    }
+    .step-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .35rem; }
+    .step-num { font-family: var(--titulos); font-size: .75rem; font-weight: 600; letter-spacing: .14em; color: var(--naranja-prof); }
+    .step-icon { color: var(--azul); width: 26px; height: 26px; flex-shrink: 0; }
+    .card h3 { font-size: 1.3rem; font-weight: 600; line-height: 1.2; margin-bottom: .5rem; }
+    .card p { font-size: .98rem; color: var(--suave); }
+
+    .includes { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 2.5rem; list-style: none; }
+    .includes li {
+      font-family: var(--titulos);
+      font-size: .95rem;
+      color: var(--noche);
+      background: var(--azul-niebla);
+      padding: .55rem 1.2rem;
+      border-radius: 999px;
     }
 
-    .card p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
+    /* ---------- Sobre mí (bloque azul) ---------- */
+    .about {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      background: var(--azul);
+      border-radius: 32px;
+      padding: 3.5rem;
+      color: var(--blanco);
+      position: relative;
+      overflow: hidden;
     }
+    .about::after { /* símbolo como marca de agua */
+      content: "";
+      position: absolute;
+      right: 3rem; top: 50%;
+      width: 120px; height: 242px;
+      transform: translateY(-50%);
+      background: url("assets/simbolo-blanco.png") center / contain no-repeat;
+      opacity: .12;
+      pointer-events: none;
+    }
+    .about-photo {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid var(--blanco);
+      background: var(--azul-claro);
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+    .about .ceja { color: var(--azul-claro); }
+    .about h2 { color: var(--blanco); font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 600; line-height: 1.15; margin-bottom: 1rem; }
+    .about p { font-size: 1.02rem; color: var(--blanco); opacity: .92; margin-bottom: .9rem; max-width: 34rem; position: relative; z-index: 1; }
+    .about a { color: var(--blanco); font-family: var(--titulos); font-weight: 600; }
 
+    /* ---------- FAQ ---------- */
+    .faq { max-width: 760px; margin: 0 auto; display: grid; gap: .75rem; }
+    .faq details { background: var(--blanco); border-radius: 18px; padding: 0 1.5rem; border: 2px solid transparent; transition: border-color .2s; }
+    .faq details[open] { border-color: var(--azul-claro); }
+    .faq summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.2rem 0;
+      font-family: var(--titulos);
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--noche);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+";
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--azul-niebla);
+      color: var(--azul);
+      display: grid; place-items: center;
+      font-size: 1.2rem;
+      transition: transform .25s ease, background-color .25s ease, color .25s ease;
+    }
+    .faq details[open] summary::after { transform: rotate(45deg); background: var(--azul); color: var(--blanco); }
+    .faq details p { padding-bottom: 1.3rem; font-size: 1rem; color: var(--suave); }
+
+    /* ---------- Formulario ---------- */
     .form-section {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem 1.5rem;
+      background: var(--blanco);
+      border: 2px solid var(--linea);
+      border-radius: 32px;
+      padding: 3rem 1.5rem 2rem;
       text-align: center;
-      max-width: 680px;
+      max-width: 760px;
       margin: 0 auto;
     }
+    .form-section .lead { color: var(--suave); font-size: 1.02rem; max-width: 540px; margin: 0 auto; }
+    .form-container { margin-top: 1.5rem; display: flex; justify-content: center; }
+    .form-container iframe { width: 100%; max-width: 600px; height: 560px; border: 0; }
+    .privacy { font-size: .8rem; color: var(--suave); margin: 1rem auto 0; max-width: 540px; }
 
-    .form-container {
-      margin-top: 1.5rem;
-      width: 100%;
-      display: flex;
-      justify-content: center;
+    /* ---------- Aviso de cuidado ---------- */
+    .care-note {
+      max-width: 760px;
+      margin: 2rem auto 0;
+      padding: 1.25rem 1.5rem;
+      border-radius: 18px;
+      background: var(--azul-niebla);
+      border-left: 6px solid var(--azul);
+      font-size: .92rem;
+      color: var(--noche);
+    }
+    .care-note strong { font-family: var(--titulos); font-weight: 600; }
+
+    /* ---------- Footer (azul noche) ---------- */
+    footer { background: var(--noche); color: var(--blanco); padding: 3rem 5%; margin-top: 2rem; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-inner img { height: 58px; width: auto; display: block; }
+    .footer-text { font-family: var(--titulos); font-size: .92rem; text-align: right; opacity: .9; }
+    .footer-text a { color: var(--blanco); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.4); }
+    .footer-text a:hover { border-color: var(--blanco); }
+
+    /* ---------- Animación de entrada ---------- */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .card, .btn-primary { transition: none; }
     }
 
-    .form-container iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 540px;
-      border: 0;
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .about { grid-template-columns: 1fr; text-align: center; padding: 2.5rem 1.5rem; gap: 1.75rem; }
+      .about-photo { width: 180px; height: 180px; margin: 0 auto; }
+      .about p { margin-inline: auto; }
+      .about::after { display: none; }
     }
-
-    footer {
-      text-align: center;
-      padding: 2.5rem 5%;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border);
-    }
-
     @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .grid-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .form-container iframe {
-        height: 580px;
-      }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .brand img { height: 50px; }
+      section { padding: 3.5rem 0; }
+      .hero { grid-template-columns: 1fr; text-align: center; gap: 3.5rem; padding-top: 2rem; }
+      .subtitle, .declaracion { margin-inline: auto; }
+      .declaracion { text-align: left; }
+      .hero-actions, .trust { justify-content: center; }
+      .video-wrapper { max-width: 230px; }
+      .video-stage::before { width: 100%; max-width: 340px; }
+      .grid-steps, .fit { grid-template-columns: 1fr; }
+      .card { padding: 1.5rem; }
+      .num-c { width: 46px; height: 46px; font-size: 1.15rem; }
+      .form-container iframe { height: 600px; }
+      .footer-inner { flex-direction: column; }
+      .footer-text { text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <a href="#" class="brand">Psico.logia.co</a>
-    <a href="#registro" class="nav-cta">Unirme a la lista</a>
+  <header class="site-header" id="top">
+    <nav aria-label="Principal">
+      <a href="#top" class="brand"><img src="assets/logo-negro.png" alt="psico.logia.co" width="80" height="60"></a>
+      <div class="nav-links">
+        <a href="#programa">Programa</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="#registro" class="nav-cta">Unirme</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="container">
-    <!-- Sección Principal + Video Short -->
-    <section class="hero">
-      <div>
-        <span class="badge">Terapia de Aceptación y Compromiso (ACT)</span>
-        <h1>Deja de tener tu vida en pausa por pelear contra tu mente.</h1>
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="container hero">
+      <div class="reveal">
+        <span class="ceja">Complemento terapéutico en ACT</span>
+        <h1>Deja de tener tu vida en pausa por <span class="resalta">pelear contra tu mente.</span></h1>
         <p class="subtitle">
-          Un programa práctico respaldado por la ciencia. Sin frases motivacionales ni positividad tóxica: entrenamientos breves, ejercicios experienciales y hojas de trabajo para cambiar tu relación con la ansiedad, el sobrepensamiento y los duelos.
+          Material práctico respaldado por la ciencia para seguir trabajando entre sesiones. Sin frases motivacionales ni positividad tóxica: entrenamientos breves, ejercicios experienciales y hojas de trabajo para entender mejor tu mente y cambiar tu relación con la ansiedad, el sobrepensamiento y los duelos.
         </p>
-        <a href="#registro" class="btn-primary">Acceder al programa y novedades</a>
+
+        <div class="declaracion">
+          <strong>Un complemento a la terapia, no un reemplazo.</strong>
+          <p>Si ya estás en proceso conmigo, aquí encuentras material extra para practicar entre sesiones. Si no, es una puerta de entrada para entender mejor tu mente con herramientas de ACT.</p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#registro" class="btn-primary">Quiero unirme <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="#programa" class="btn-link">Ver cómo funciona</a>
+        </div>
+        <ul class="trust">
+          <li>Psicólogo clínico</li>
+          <li>Complementa tu terapia</li>
+          <li>Basado en evidencia</li>
+        </ul>
       </div>
 
-      <div class="video-wrapper">
-        <iframe 
-          src="https://www.youtube.com/embed/a9fphXffTh4" 
-          title="Presentación de la suscripción de psico.logia.co" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+      <div class="video-stage reveal">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/a9fphXffTh4?rel=0"
+            title="Presentación de psico.logia.co"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </section>
 
-    <!-- Estructura del programa -->
-    <section>
-      <h2 class="section-title">¿Cómo trabajaremos paso a paso?</h2>
-      <p class="section-desc">
-        Pasamos de la teoría a la práctica desde el primer día con documentos descargables, autorregistros y herramientas aplicables a tu propio caso.
-      </p>
+    <!-- ================= PARA QUIÉN ================= -->
+    <section class="crema">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="ceja">Para quién es</span>
+          <h2 class="section-title">¿Es <span class="resalta">para ti?</span></h2>
+          <p class="section-desc">Lo pensé para dos tipos de personas: quienes ya están en proceso terapéutico conmigo y quienes quieren empezar a entender su mente con herramientas de ACT.</p>
+        </div>
+        <div class="fit">
+          <div class="fit-col fit-yes reveal">
+            <h3>Es para ti si…</h3>
+            <ul>
+              <li>Estás en proceso conmigo y quieres material para practicar y profundizar entre sesiones.</li>
+              <li>Le das vueltas a lo mismo una y otra vez y sientes que tu cabeza no descansa.</li>
+              <li>La ansiedad o el miedo te hacen evitar cosas que sí te importan.</li>
+              <li>Estás atravesando una pérdida y no sabes cómo hacerle espacio.</li>
+              <li>Quieres herramientas concretas, no solo teoría.</li>
+            </ul>
+          </div>
+          <div class="fit-col fit-no reveal">
+            <h3>No es para ti si…</h3>
+            <ul>
+              <li>Buscas un sustituto de la terapia o del acompañamiento profesional.</li>
+              <li>Buscas una fórmula para “eliminar” las emociones difíciles.</li>
+              <li>Esperas resultados sin practicar los ejercicios.</li>
+              <li>Estás en una crisis que necesita atención inmediata (mira el aviso al final).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROGRAMA ================= -->
+    <section class="container" id="programa">
+      <div class="section-head reveal">
+        <span class="ceja">El programa</span>
+        <h2 class="section-title">Lo que vas a practicar, <span class="resalta">paso a paso</span></h2>
+        <p class="section-desc">
+          Desde el primer día pasas de la teoría a la práctica, con documentos descargables, autorregistros y herramientas que aplicas a tu propio caso.
+        </p>
+      </div>
 
       <div class="grid-steps">
-        <div class="card">
-          <span class="step-num">ETAPA 01</span>
+        <article class="card reveal">
+          <div class="num-c" aria-hidden="true">1</div>
+          <div class="step-head">
+            <span class="step-num">ETAPA 01</span>
+            <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3a5 5 0 0 0-5 5c0 1.6.8 3 2 4v3h6"/><path d="M15 3a5 5 0 0 1 5 5c0 1.6-.8 3-2 4v3h-6"/><path d="M12 15v6"/></svg>
+          </div>
           <h3>Desenganchar tu mente</h3>
           <p>Herramientas prácticas para frenar la rumiación y el sobrepensamiento sin desgastarte intentando suprimir lo que piensas.</p>
-        </div>
+        </article>
 
-        <div class="card">
-          <span class="step-num">ETAPA 02</span>
+        <article class="card reveal">
+          <div class="num-c" aria-hidden="true">2</div>
+          <div class="step-head">
+            <span class="step-num">ETAPA 02</span>
+            <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M4 11h16v3a8 8 0 0 1-16 0z"/></svg>
+          </div>
           <h3>Soltar la lucha emocional</h3>
           <p>Aprende a abrirle espacio a la ansiedad, el miedo o el dolor emocional sin que te desborden ni paralicen tu día.</p>
-        </div>
+        </article>
 
-        <div class="card">
-          <span class="step-num">ETAPA 03</span>
+        <article class="card reveal">
+          <div class="num-c" aria-hidden="true">3</div>
+          <div class="step-head">
+            <span class="step-num">ETAPA 03</span>
+            <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg>
+          </div>
           <h3>Salir del piloto automático</h3>
           <p>Ejercicios breves de anclaje al presente para recuperar el foco cuando tu mente intenta llevarte al pasado o al futuro.</p>
-        </div>
+        </article>
 
-        <div class="card">
-          <span class="step-num">ETAPA 04</span>
+        <article class="card reveal">
+          <div class="num-c" aria-hidden="true">4</div>
+          <div class="step-head">
+            <span class="step-num">ETAPA 04</span>
+            <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>
+          </div>
           <h3>Brújula y plan de acción</h3>
           <p>Clarifica qué es lo que realmente te importa hoy y construye acciones concretas hacia la vida que quieres dirigir.</p>
+        </article>
+      </div>
+
+      <ul class="includes reveal" aria-label="Qué incluye">
+        <li>Videos breves</li>
+        <li>Ejercicios experienciales</li>
+        <li>Hojas de trabajo en PDF</li>
+        <li>Autorregistros</li>
+      </ul>
+    </section>
+
+    <!-- ================= SOBRE MÍ ================= -->
+    <section class="container" id="sobre-mi">
+      <div class="about reveal">
+        <div class="about-photo">
+          <img src="assets/david.jpg" alt="David Patiño, psicólogo clínico" width="640" height="800" loading="lazy">
+        </div>
+        <div>
+          <span class="ceja">Quién está detrás</span>
+          <h2>Hola, soy David, psicólogo clínico.</h2>
+          <p>Trabajo con Terapias de Tercera Generación, en especial con ACT, y acompaño a personas que sienten que la ansiedad, el sobrepensamiento o una pérdida les tienen la vida en pausa.</p>
+          <p>Creé este espacio como una extensión de mi forma de trabajar: no reemplaza la consulta, la complementa. Es el material que me gustaría que cada persona tuviera a mano para seguir practicando entre una sesión y otra.</p>
+          <p>Me encuentras en Instagram como <a href="https://www.instagram.com/psico.logia.co/" target="_blank" rel="noopener">@psico.logia.co</a></p>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Captura de Correos (Google Forms integrado) -->
-    <section id="registro" class="form-section">
-      <h2 class="section-title">Recibe acceso y recursos gratuitos</h2>
-      <p style="color: var(--text-secondary); font-size: 0.95rem;">
-        Deja tu correo para enviarte el enlace directo a la zona de suscriptores, avisarte de nuevos episodios y compartirte herramientas complementarias en ACT.
-      </p>
-
-      <div class="form-container">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdQrP3LKl-P-370vySkCF_ccMPNPhLd7bcRn07_DvFfFi0J9Q/viewform?embedded=true" 
-          title="Formulario de suscripción Psico.logia.co">
-          Cargando formulario…
-        </iframe>
+    <!-- ================= FAQ ================= -->
+    <section class="crema" id="preguntas">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="ceja">Preguntas frecuentes</span>
+          <h2 class="section-title">Antes de <span class="resalta">empezar</span></h2>
+        </div>
+        <div class="faq reveal">
+          <details open>
+            <summary>¿Esto reemplaza ir a terapia?</summary>
+            <p>No, y no busca hacerlo. Es material complementario: psicoeducación y entrenamiento en habilidades para practicar entre sesiones y entender un poco más tu mente. Si estás en proceso conmigo, lo usamos como apoyo de lo que trabajamos en consulta. Si no estás en terapia y lo que vives te está afectando de forma importante, te recomiendo buscar acompañamiento profesional.</p>
+          </details>
+          <details>
+            <summary>Ya estoy en terapia contigo, ¿cómo lo uso?</summary>
+            <p>Como tarea y refuerzo entre sesiones. Puedes traer a consulta lo que te surja con los ejercicios y autorregistros, y así avanzamos con más material sobre tu propio caso.</p>
+          </details>
+          <details>
+            <summary>¿Qué es la Terapia de Aceptación y Compromiso (ACT)?</summary>
+            <p>Es una terapia de tercera generación con respaldo científico. En lugar de pelear con pensamientos y emociones difíciles, entrenas habilidades para relacionarte distinto con ellos y moverte hacia lo que te importa.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tiempo necesito al día?</summary>
+            <p>Los entrenamientos son breves, pensados para que practiques unos minutos al día sin tener que reorganizar tu agenda.</p>
+          </details>
+          <details>
+            <summary>¿Tiene costo?</summary>
+            <!-- EDITAR: escribe aquí el precio o si hay una parte gratuita -->
+            <p>Al dejar tu correo recibes acceso a los recursos gratuitos y toda la información sobre la suscripción.</p>
+          </details>
+        </div>
       </div>
+    </section>
+
+    <!-- ================= REGISTRO ================= -->
+    <section class="container" id="registro">
+      <div class="form-section reveal">
+        <span class="ceja">Acceso y recursos gratuitos</span>
+        <h2 class="section-title">Empieza <span class="resalta">hoy</span></h2>
+        <p class="lead">
+          Déjame tu correo y te envío el enlace directo a la zona de suscriptores, te aviso de nuevos episodios y te comparto herramientas complementarias en ACT.
+        </p>
+
+        <div class="form-container">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdQrP3LKl-P-370vySkCF_ccMPNPhLd7bcRn07_DvFfFi0J9Q/viewform?embedded=true"
+            title="Formulario de suscripción psico.logia.co"
+            loading="lazy">
+            Cargando formulario…
+          </iframe>
+        </div>
+        <p class="privacy">Uso tus datos solo para enviarte el acceso y el contenido de psico.logia.co, conforme a la Ley 1581 de 2012. Puedes darte de baja cuando quieras.</p>
+      </div>
+
+      <aside class="care-note reveal" role="note">
+        <strong>Si estás en una crisis o sientes que no puedes mantenerte a salvo,</strong> este material no es el recurso adecuado en este momento. En Colombia puedes llamar a la Línea 192 opción 4 (nacional, Minsalud) o, en Medellín, a la Línea Amiga: 106 desde celular o (604) 444 44 48. En una emergencia, marca 123.
+      </aside>
     </section>
   </main>
 
   <footer>
-    <p><strong>David Patiño</strong> · Psicólogo Clínico · @psico.logia.co</p>
-    <p style="margin-top: 0.35rem; font-size: 0.8rem;">Contenido basado en evidencia científica (Terapias de Tercera Generación).</p>
+    <div class="footer-inner">
+      <img src="assets/logo-blanco.png" alt="psico.logia.co" width="77" height="58" loading="lazy">
+      <div class="footer-text">
+        <p>David Patiño · Psicólogo clínico · <a href="https://www.instagram.com/psico.logia.co/" target="_blank" rel="noopener">@psico.logia.co</a></p>
+        <p>Psicología basada en evidencia · © <span id="year">2026</span> psico.logia.co</p>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    const header = document.querySelector('.site-header');
+    addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), { passive: true });
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
